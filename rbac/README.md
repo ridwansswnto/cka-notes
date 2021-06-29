@@ -5,3 +5,6 @@ Sebelum ke RBAC, di kubernetes itu ada yang namanya [API ACCESS CONTROL](https:/
  * Authenticating
  * Authorization -> (RBAC)
  * Admission Controllers
+
+![alttest](/images/rbac.png)
+![alttest](/images/rbac1.png)
