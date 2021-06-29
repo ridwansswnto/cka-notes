@@ -18,3 +18,25 @@ This is notes from my journey to get CKA
 * Understand the primitives used to create robust, self-healing, application deployments
 * Understand how resource limits can affect Pod scheduling
 * Awareness of manifest management and common templating tools
+
+### Services & Networking - 20%
+* Understand host networking configuration on the cluster nodes
+* Understand connectivity between Pods
+* Understand ClusterIP, NodePort, LoadBalancer service types and endpoints
+* Know how to use Ingress controllers and Ingress resources
+* Know how to configure and use CoreDNS
+* Choose an appropriate container network interface plugin
+
+### Storage - 10%
+* Understand storage classes, persistent volumes
+* Understand volume mode, access modes and reclaim policies for volumes
+* Understand persistent volume claims primitive
+* Know how to configure applications with persistent storage
+
+### Troubleshooting - 30%
+* Evaluate cluster and node logging
+* Understand how to monitor applications
+* Manage container stdout & stderr logs
+* Troubleshoot application failure
+* Troubleshoot cluster component failure
+* Troubleshoot networking
