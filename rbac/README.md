@@ -280,8 +280,10 @@ simplenya
 
 If you want to define a role within a namespace, use a Role; if you want to define a role cluster-wide, use a ClusterRole
 
-Nah kira-kira seperti itu guyss mengenai RBAC di kubernetes yakkk, semoga memberikan anda-anda sekalian yang membacanya
+Nah kira-kira seperti itu guyss mengenai RBAC di kubernetes yakkk, semoga memberikan anda-anda sekalian pencerahan bagi yang membacanya
 
+### Oke setelah overview sedikit mengenai RBAC kita lanjut exercise
+Oke CKA ini mengenai PRACTICE, PRACTICE, PRACTICE dan PRACTICE, jadi semakin banyak kita PRACTICE semakin cerah hari-hari kita guys
 
 Referensi RBAC
 * https://kubernetes.io/docs/reference/access-authn-authz/rbac/
@@ -293,5 +295,6 @@ Referensi RBAC
 * https://searchitoperations.techtarget.com/tutorial/Be-selective-with-Kubernetes-RBAC-permissions
 * https://medium.com/@HoussemDellai/rbac-with-kubernetes-in-minikube-4deed658ea7b
 * https://github.com/sighupio/permission-manager
+* https://k21academy.com/docker-kubernetes/rbac-role-based-access-control/
 * https://dominik-tornow.medium.com/inside-kubernetes-rbac-9988b08a738a ( ini untuk detail deep dive mengenai rbac )
 
