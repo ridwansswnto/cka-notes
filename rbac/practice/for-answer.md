@@ -31,6 +31,14 @@ NAME                  TYPE                                  DATA   AGE
 ckaexam-token-hd8zd   kubernetes.io/service-account-token   3      25h
 default-token-fthlh   kubernetes.io/service-account-token   3      32h
 
+kubectl get secrets --as wawan --as-group security --all-namespaces
+NAMESPACE         NAME                                             TYPE                                  DATA   AGE
+default           default-token-fthlh                              kubernetes.io/service-account-token   3      32h
+docker            compose-etcd                                     Opaque                                4      32h
+docker            compose-token-knm9w                              kubernetes.io/service-account-token   3      32h
+docker            default-token-s2h9h                              kubernetes.io/service-account-token   3      32h
+kube-node-lease   default-token-45rq7                              kubernetes.io/service-account-token   3      32h
+
 kubectl get pod --as wawan --as-group security 
 Error from server (Forbidden): pods is forbidden: User "wawan" cannot list resource "pods" in API group "" in the namespace "default"
 
