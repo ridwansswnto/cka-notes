@@ -283,7 +283,7 @@ If you want to define a role within a namespace, use a Role; if you want to defi
 Nah kira-kira seperti itu guyss mengenai RBAC di kubernetes yakkk, semoga memberikan anda-anda sekalian pencerahan bagi yang membacanya
 
 ### Oke setelah overview sedikit mengenai RBAC kita lanjut exercise
-Oke CKA ini mengenai PRACTICE, PRACTICE, PRACTICE dan PRACTICE, jadi semakin banyak kita PRACTICE semakin cerah hari-hari kita guys
+CKA ini mengenai PRACTICE, PRACTICE, PRACTICE dan PRACTICE, jadi semakin banyak kita PRACTICE semakin cerah hari-hari kita guys.
 
 Referensi RBAC
 * https://kubernetes.io/docs/reference/access-authn-authz/rbac/
