@@ -15,5 +15,5 @@ Ada 3rd party application yang butuh akses untuk nge describe `ingress` object y
 Ada security engineer yang pengen bisa liat apakah semua secret sudah sesuai dengan standard mereka, jadi security engineer ini bisa ngeliat secret di semua namespaces (kita anggap setiap aplikasi memiliki namespace sendiri)
 
 * Bikin clusterrole dengan nama for-seceng-reader untuk bisa get, list, secret
-* bikin clusterrolebinding dengan nama user-seceng-reader
-* impersonate salah satu user misal si wawan(orang security engineer )dengan group seceng
+* bikin clusterrolebinding dengan nama user-seceng-reader untuk group security
+* impersonate salah satu user misal si wawan(orang security engineer )dengan group security
