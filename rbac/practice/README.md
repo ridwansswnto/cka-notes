@@ -2,6 +2,8 @@
 
 Oke pertama2 kalau lu jalanin kubernetes yang dari docker-desktop, gua jamin lu bakalan pusing karena every serviceaccount yang lu buat gak bakal kena di role yang kalian bikin, karena apa? karena service account yang kalian bikin itu kebaca pake RBAC nya si clusterrolebinding `docker-for-desktop-binding`
 
+jadi meskipun kalian udah as is as apalah atau impersonate sebagai xxxx, bakalan tetep bisa ngapain aja. Karena inget docker-desktop itu buat development, jadi ya lu mau aneh2 kek bebas 
+
 nah meskipun lu udah kasih limitasi ke serviceaccount yang lu buat, mereka tetep bisa akses apapun di cluster, cara fixnya yaitu lu patch si crb `docker-for-desktop-binding` pakai ini ya
 
 ```
