@@ -31,6 +31,9 @@ NAME                  TYPE                                  DATA   AGE
 ckaexam-token-hd8zd   kubernetes.io/service-account-token   3      25h
 default-token-fthlh   kubernetes.io/service-account-token   3      32h
 
+kubectl get pod --as wawan --as-group security 
+Error from server (Forbidden): pods is forbidden: User "wawan" cannot list resource "pods" in API group "" in the namespace "default"
+
 kubectl get secrets --as wawan --as-group dev     
 Error from server (Forbidden): secrets is forbidden: User "wawan" cannot list resource "secrets" in API group "" in the namespace "default"
 ```
