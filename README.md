@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://kubernetes.io/" title="Redirect to Kubernetes page">
+    <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="250" />
+  </a>
+</p>
+
 # CKA Notes 
 This is notes from my journey to get CKA
 
@@ -12,7 +18,7 @@ This is notes from my journey to get CKA
 * Implement etcd backup and restore
 
 ### Workloads & Scheduling - 15%
-* Understand deployments and how to perform rolling update and rollbacks
+* [Understand deployments and how to perform rolling update and rollbacks](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 * Use ConfigMaps and Secrets to configure applications
 * Know how to scale applications
 * Understand the primitives used to create robust, self-healing, application deployments
