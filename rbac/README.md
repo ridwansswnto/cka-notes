@@ -295,6 +295,7 @@ Referensi RBAC
 * https://searchitoperations.techtarget.com/tutorial/Be-selective-with-Kubernetes-RBAC-permissions
 * https://medium.com/@HoussemDellai/rbac-with-kubernetes-in-minikube-4deed658ea7b
 * https://github.com/sighupio/permission-manager
+* https://rtfm.co.ua/en/kubernetes-part-5-rbac-authorization-with-a-role-and-rolebinding-example/
 * https://k21academy.com/docker-kubernetes/rbac-role-based-access-control/
 * https://dominik-tornow.medium.com/inside-kubernetes-rbac-9988b08a738a ( ini untuk detail deep dive mengenai rbac )
 

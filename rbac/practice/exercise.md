@@ -17,3 +17,12 @@ Ada security engineer yang pengen bisa liat apakah semua secret sudah sesuai den
 * Bikin clusterrole dengan nama for-seceng-reader untuk bisa get, list, secret
 * bikin clusterrolebinding dengan nama user-seceng-reader untuk group security
 * impersonate salah satu user misal si wawan(orang security engineer )dengan group security
+
+
+## Soal 3
+Create a ClusterRole and ClusterRoleBinding so that user secret@cka.com can only access and manage secrets. Test it
+
+
+## Soal 4
+
+Create a ClusterRole and ClusterRoleBinding so that user deploy@cka.com can only deploy and manage pods named compute. Test it

@@ -46,3 +46,66 @@ kubectl get secrets --as wawan --as-group dev
 Error from server (Forbidden): secrets is forbidden: User "wawan" cannot list resource "secrets" in API group "" in the namespace "default"
 ```
 </details>
+
+## Soal 3
+
+<details><summary>Answer - Imperative</summary>
+
+```
+k create clusterrole admin-secret --verb="*" --resource secret
+clusterrole.rbac.authorization.k8s.io/admin-secret created
+
+k create clusterrolebinding admin-secret --clusterrole=admin-secret --user=secret@cka.com
+clusterrolebinding.rbac.authorization.k8s.io/admin-secret created
+
+TEST IT
+k auth can-i create secret --as secret@cka.com
+yes
+
+k auth can-i "*" secret --as secret@cka.com
+yes
+
+k auth can-i get pod --as secret@cka.com
+no
+```
+</details>
+
+## Soal 4
+
+<details><summary>Answer - Imperative</summary>
+```
+k create clusterrole admin-deploy --verb="*" --resource=pod --resource-name="compute"
+clusterrole.rbac.authorization.k8s.io/admin-deploy created
+
+kubectl describe clusterrole admin-deploy
+Name:         admin-deploy
+Labels:       <none>
+Annotations:  <none>
+PolicyRule:
+  Resources  Non-Resource URLs  Resource Names  Verbs
+  ---------  -----------------  --------------  -----
+  pods       []                 [compute]       [*]
+
+k create clusterrolebinding admin-deploy --clusterrole=admin-deploy --user=deploy@cka.com
+clusterrolebinding.rbac.authorization.k8s.io/admin-deploy created
+
+k describe clusterrolebinding admin-deploy
+Name:         admin-deploy
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  ClusterRole
+  Name:  admin-deploy
+Subjects:
+  Kind  Name             Namespace
+  ----  ----             ---------
+  User  deploy@cka.com
+
+TEST IT
+k auth can-i "*" pod/compute --as deploy@cka.com
+yes
+
+k auth can-i "*" pod/computed --as deploy@cka.com
+no
+```
+</details>
