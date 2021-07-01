@@ -73,6 +73,7 @@ no
 ## Soal 4
 
 <details><summary>Answer - Imperative</summary>
+
 ```
 k create clusterrole admin-deploy --verb="*" --resource=pod --resource-name="compute"
 clusterrole.rbac.authorization.k8s.io/admin-deploy created
