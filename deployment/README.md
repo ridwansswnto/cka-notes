@@ -94,6 +94,89 @@ kubectl describe pod tomcat2
 Referensi sidecar pattern:
 * https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
 
+### REPLICASET
+
+siapkan manifest atau file yaml kayak gini
+<details><summary>replicaset.yaml</summary>
+
+```
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-proxy
+  labels:
+    app: nginx-proxy
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+```
+</details>
+
+jalankan dengan command `kubectl apply -f rs.yaml` maka kubernetes akan bikin object replicaset seperti ini `replicaset.apps/nginx-proxy created`
+
+kalau kita cek dengan get pods akan ada 3 pod dengan nama nginx-proxy 
+```
+kubectl get pods        
+NAME                READY   STATUS    RESTARTS   AGE
+nginx-proxy-8jrf9   1/1     Running   0          51s
+nginx-proxy-c5s58   1/1     Running   0          51s
+nginx-proxy-jwmsw   1/1     Running   0          51s
+```
+
+nah yang menarik disini, ada sebuah controller untuk memastikan bahwa object / pods yang running tetap sesuai atau misal disni harus ada 3, jadi kalau ada pods yang failed atau mati, replicaset akan create pods baru
+
+```
+kubectl get replicaset      
+NAME          DESIRED   CURRENT   READY   AGE
+nginx-proxy   3         3         3       3m13s
+```
+
+nah kalian bisa ngecek ke dalem dengan `descirbe` atau `-o yaml`
+
+<details><summary>describe rs nginx-proxy</summary>
+
+```
+kubectl describe rs nginx-proxy                                                    
+Name:         nginx-proxy
+Namespace:    default
+Selector:     tier=frontend
+Labels:       app=nginx-proxy
+              tier=frontend
+Annotations:  <none>
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  tier=frontend
+  Containers:
+   nginx:
+    Image:        nginx
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age    From                   Message
+  ----    ------            ----   ----                   -------
+  Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-8jrf9
+  Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-jwmsw
+  Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-c5s58
+</details>
+```
+
+
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
 * https://blog.macstadium.com/blog/how-to-k8s-pods-replicasets-and-deployments
