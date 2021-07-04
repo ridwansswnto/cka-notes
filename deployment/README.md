@@ -36,6 +36,17 @@ spec:
     imagePullPolicy: Always
 EOF
 ```
+
+kita cek containernya
+```
+kubectl get pods              
+NAME     READY   STATUS    RESTARTS   AGE
+tomcat   1/1     Running   0          8m17s
+
+kubectl describe pod tomcat
+```
+
+>
 </details>
 
 
