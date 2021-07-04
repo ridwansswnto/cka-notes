@@ -49,7 +49,12 @@ kubectl describe pod tomcat
 ```
 
 > Dua PODS
+
 Ini cocok seperti container dengan sidecar pattern
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/podsidecar.png">
+</p>
 
 <details><summary>tomcat.yaml</summary>
 
