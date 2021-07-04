@@ -91,6 +91,9 @@ tomcat2   2/2     Running   0          4m23s
 kubectl describe pod tomcat2
 ```
 
+Referensi sidecar pattern:
+* https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
+
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
 * https://blog.macstadium.com/blog/how-to-k8s-pods-replicasets-and-deployments
