@@ -96,6 +96,11 @@ Referensi sidecar pattern:
 
 ### REPLICASET
 
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/replicaset.png">
+</p>
+
+
 siapkan manifest atau file yaml kayak gini
 <details><summary>replicaset.yaml</summary>
 
