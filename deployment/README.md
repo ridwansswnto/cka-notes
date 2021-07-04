@@ -196,7 +196,7 @@ nginx-proxy-jwmsw   1/1     Running   0          9m40s
 
 Referensi Replicaset:
 * https://congdonglinux.com/how-to-create-a-replicaset-in-kubernetes/
-* https://congdonglinux.com/how-to-create-a-replicaset-in-kubernetes/
+* https://theithollow.com/2019/01/28/kubernetes-replica-sets/
 
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
