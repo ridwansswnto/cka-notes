@@ -100,7 +100,6 @@ Referensi sidecar pattern:
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/replicaset.png">
 </p>
 
-
 siapkan manifest atau file yaml kayak gini
 <details><summary>replicaset.yaml</summary>
 
@@ -178,12 +177,10 @@ Events:
   Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-8jrf9
   Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-jwmsw
   Normal  SuccessfulCreate  4m58s  replicaset-controller  Created pod: nginx-proxy-c5s58
-</details>
 ```
-
+</details>
 
 Oke karena kita sudah ada istilah nya abstraksi / management pods, kita bisa ubah scale nya misal dari 3 menjadi 2 seperti berikut
-
 
 ```
 kubectl scale --replicas 2 replicaset nginx-proxy
