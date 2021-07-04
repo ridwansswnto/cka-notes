@@ -49,6 +49,8 @@ kubectl describe pod tomcat
 ```
 
 > Dua PODS
+Ini cocok seperti container dengan sidecar pattern
+
 <details><summary>tomcat.yaml</summary>
 
 ```
