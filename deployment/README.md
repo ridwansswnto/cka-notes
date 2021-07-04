@@ -176,6 +176,19 @@ Events:
 </details>
 ```
 
+Oke karena kita sudah ada istilah nya abstraksi / management pods, kita bisa ubah scale nya misal dari 3 menjadi 2 seperti berikut
+```
+kubectl scale --replicas 2 replicaset nginx-proxy
+replicaset.apps/nginx-proxy scaled
+```
+
+maka replica podsnya  akan berubah menjadi 2
+```
+NAME                READY   STATUS    RESTARTS   AGE
+nginx-proxy-c5s58   1/1     Running   0          9m40s
+nginx-proxy-jwmsw   1/1     Running   0          9m40s
+```
+
 
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
