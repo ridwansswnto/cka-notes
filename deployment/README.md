@@ -177,6 +177,7 @@ Events:
 ```
 
 Oke karena kita sudah ada istilah nya abstraksi / management pods, kita bisa ubah scale nya misal dari 3 menjadi 2 seperti berikut
+
 ```
 kubectl scale --replicas 2 replicaset nginx-proxy
 replicaset.apps/nginx-proxy scaled
