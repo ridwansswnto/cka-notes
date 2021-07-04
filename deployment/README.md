@@ -36,6 +36,8 @@ spec:
     imagePullPolicy: Always
 EOF
 ```
+</details>
+
 
 kita cek containernya
 ```
@@ -46,12 +48,41 @@ tomcat   1/1     Running   0          8m17s
 kubectl describe pod tomcat
 ```
 
->
+> Dua PODS
+<details><summary>tomcat.yaml</summary>
+
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+   name: tomcat2
+spec:
+  containers:
+  - name: tomcat2
+    image: tomcat:8.0
+    ports:
+    - name: tomcat
+      containerPort: 7500
+    imagePullPolicy: Always
+  - name: database
+    image: mongo
+    ports:
+    - name: db
+      containerPort: 7501
+    imagePullPolicy: Always
+EOF
+```
 </details>
 
+kita cek containernya
+```
+kubectl get pods              
+NAME     READY   STATUS    RESTARTS   AGE
+tomcat2   2/2     Running   0          4m23s
 
-
-
+kubectl describe pod tomcat2
+```
 
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
