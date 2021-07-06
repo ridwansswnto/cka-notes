@@ -235,7 +235,6 @@ spec:
 
 kita liat semua object dengan command `kubectl get all`
 ```
-kubectl get all                                
 NAME                                     READY   STATUS    RESTARTS   AGE
 pod/contoh-deployment-55954f5855-st6fx   1/1     Running   0          6m24s
 
