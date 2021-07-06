@@ -84,11 +84,11 @@ EOF
 
 kita cek containernya
 ```
-kubectl get pods              
-NAME     READY   STATUS    RESTARTS   AGE
-tomcat2   2/2     Running   0          4m23s
+# kubectl get pods              
+> NAME     READY   STATUS    RESTARTS   AGE
+> tomcat2   2/2     Running   0          4m23s
 
-kubectl describe pod tomcat2
+# kubectl describe pod tomcat2
 ```
 
 Referensi sidecar pattern:
@@ -132,19 +132,19 @@ jalankan dengan command `kubectl apply -f rs.yaml` maka kubernetes akan bikin ob
 
 kalau kita cek dengan get pods akan ada 3 pod dengan nama nginx-proxy 
 ```
-kubectl get pods        
-NAME                READY   STATUS    RESTARTS   AGE
-nginx-proxy-8jrf9   1/1     Running   0          51s
-nginx-proxy-c5s58   1/1     Running   0          51s
-nginx-proxy-jwmsw   1/1     Running   0          51s
+# kubectl get pods        
+> NAME                READY   STATUS    RESTARTS   AGE
+> nginx-proxy-8jrf9   1/1     Running   0          51s
+> nginx-proxy-c5s58   1/1     Running   0          51s
+> nginx-proxy-jwmsw   1/1     Running   0          51s
 ```
 
 nah yang menarik disini, ada sebuah controller untuk memastikan bahwa object / pods yang running tetap sesuai atau misal disni harus ada 3, jadi kalau ada pods yang failed atau mati, replicaset akan create pods baru
 
 ```
-kubectl get replicaset      
-NAME          DESIRED   CURRENT   READY   AGE
-nginx-proxy   3         3         3       3m13s
+# kubectl get replicaset      
+> NAME          DESIRED   CURRENT   READY   AGE
+> nginx-proxy   3         3         3       3m13s
 ```
 
 nah kalian bisa ngecek ke dalem dengan `descirbe` atau `-o yaml`
@@ -183,8 +183,8 @@ Events:
 Oke karena kita sudah ada istilah nya abstraksi / management pods, kita bisa ubah scale nya misal dari 3 menjadi 2 seperti berikut
 
 ```
-kubectl scale --replicas 2 replicaset nginx-proxy
-replicaset.apps/nginx-proxy scaled
+# kubectl scale --replicas 2 replicaset nginx-proxy
+> replicaset.apps/nginx-proxy scaled
 ```
 
 maka replica podsnya  akan berubah menjadi 2
