@@ -204,7 +204,7 @@ Referensi Replicaset:
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy1.png">
 </p>
 
-Deployment, hmm topic yang menaric nic. 
+Deployment, hmm topic yang menaric nic. bisa di liat dengan analogi gambar diatas. Deployment sudah mencakup untuk object seperti replicaset dan pods.
 
 <details><summary>deployment.yaml</summary>
 
@@ -232,6 +232,19 @@ spec:
           value: Hello Bro
 ```
 </details>
+
+kita liat semua object dengan command `kubectl get all`
+```
+kubectl get all                                
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/contoh-deployment-55954f5855-st6fx   1/1     Running   0          6m24s
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/contoh-deployment   1/1     1            1           6m25s
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
+```
 
 Referensi baca-baca deployment:
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
