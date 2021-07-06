@@ -263,6 +263,7 @@ deployment "contoh-deployment" successfully rolled out
 ```
 
 Referensi baca-baca deployment:
+* https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
 
 Referensi baca-baca:
