@@ -201,7 +201,7 @@ Referensi Replicaset:
 ### DEPLOYMENT
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy1.png">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy2.png">
 </p>
 
 Deployment, hmm topic yang menaric nic. bisa di liat dengan analogi gambar diatas. Deployment sudah mencakup untuk object seperti replicaset dan pods.
