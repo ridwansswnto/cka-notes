@@ -249,8 +249,8 @@ replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
 nah kali ini semisal kita butuh menambahkan jumlah pods kita bisa naikin replica seperti ini 
 
 ```
-kubectl scale --replicas 5 deployment contoh-deployment
-deployment.apps/contoh-deployment scaled
+# kubectl scale --replicas 5 deployment contoh-deployment
+> deployment.apps/contoh-deployment scaled
 ```
 
 nah kita bisa pantau rolling updatenya dengan command `kubectl rollout status deployment contoh-deployment`
@@ -262,7 +262,7 @@ Waiting for deployment "contoh-deployment" rollout to finish: 4 of 5 updated rep
 deployment "contoh-deployment" successfully rolled out
 ```
 
-Nah misalkan gua pengen update image dari debian:busterslim jadi debian:bullseyeslim yaitu dengan cara command seperti dibawah
+Nah misalkan gua pengen update image dari `debian:busterslim` jadi `debian:bullseyeslim` yaitu dengan cara command seperti dibawah
 ```
 # kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim --record
 
