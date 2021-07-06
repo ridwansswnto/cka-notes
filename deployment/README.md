@@ -198,6 +198,12 @@ Referensi Replicaset:
 * https://congdonglinux.com/how-to-create-a-replicaset-in-kubernetes/
 * https://theithollow.com/2019/01/28/kubernetes-replica-sets/
 
+### DEPLOYMENT
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy1.png">
+</p>
+
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
 * https://blog.macstadium.com/blog/how-to-k8s-pods-replicasets-and-deployments
