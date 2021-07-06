@@ -245,6 +245,23 @@ NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
 ```
 
+>> Scaling a Deployment
+nah kali ini semisal kita butuh menambahkan jumlah pods kita bisa naikin replica seperti ini 
+
+```
+kubectl scale --replicas 5 deployment contoh-deployment
+deployment.apps/contoh-deployment scaled
+```
+
+nah kita bisa pantau rolling updatenya dengan command `kubectl rollout status deployment contoh-deployment`
+```
+Waiting for deployment "contoh-deployment" rollout to finish: 1 of 5 updated replicas are available...
+Waiting for deployment "contoh-deployment" rollout to finish: 2 of 5 updated replicas are available...
+Waiting for deployment "contoh-deployment" rollout to finish: 3 of 5 updated replicas are available...
+Waiting for deployment "contoh-deployment" rollout to finish: 4 of 5 updated replicas are available...
+deployment "contoh-deployment" successfully rolled out
+```
+
 Referensi baca-baca deployment:
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
 
