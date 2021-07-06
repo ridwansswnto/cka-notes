@@ -262,6 +262,19 @@ Waiting for deployment "contoh-deployment" rollout to finish: 4 of 5 updated rep
 deployment "contoh-deployment" successfully rolled out
 ```
 
+Nah misalkan gua pengen update image dari debian:busterslim jadi debian:bullseyeslim yaitu dengan cara command seperti dibawah
+```
+# kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim --record
+
+Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
+
+# kubectl get pods contoh-deployment-67ccbff8df-9pfbg -o yaml | grep image
+> image: debian:bullseye-slim
+```
+
+kubectl set image deployment my-nginx my-nginx=nginx:1.12.0 --record
+
 Referensi baca-baca deployment:
 * https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
