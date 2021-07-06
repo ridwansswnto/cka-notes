@@ -206,6 +206,33 @@ Referensi Replicaset:
 
 Deployment, hmm topic yang menaric nic. 
 
+<details><summary>deployment.yaml</summary>
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contoh-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contoh
+  template:
+    metadata:
+      labels:
+        app: contoh
+    spec:
+      containers:
+      - name: contoh-testing-container
+        image: debian:buster-slim
+        command: ["bash", "-c", "while true; do echo \"Hello\"; echo \"EXAMPLE_ENV: $EXAMPLE_ENV\"; sleep 5; done"]
+        env:
+        - name: EXAMPLE_ENV
+          value: Hello Bro
+```
+</details>
+
 Referensi baca-baca deployment:
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
 
