@@ -204,6 +204,11 @@ Referensi Replicaset:
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy1.png">
 </p>
 
+Deployment, hmm topic yang menaric nic. 
+
+Referensi baca-baca deployment:
+* https://www.cloudops.com/blog/kubernetes-deployments-101/
+
 Referensi baca-baca:
 * https://www.ibm.com/cloud/architecture/content/course/kubernetes-101/deployments-replica-sets-and-pods/
 * https://blog.macstadium.com/blog/how-to-k8s-pods-replicasets-and-deployments
