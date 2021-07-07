@@ -12,7 +12,7 @@ Nah istilah2 gambar diatas akan banyak kalian dengar ketika membahas deployment
 
 apa itu deployment? bisa di bilang sebuah management untuk mengatur object seperti replica set dan pods. Kalau belum paham bisa liat dibawah ini untuk perbandingan antara pods, replicaset dan deployment
 
-### PODS
+## PODS
 Kubernetes tidak menjalan kan container secara langsung/direct, tapi melalui pods. didalam pods bisa terdapat lebih dari satu container dimana si container ini berbagi resouce seperti network dll tetapi tetap ada batasan untuk isolasi resource
 
 kalau bingung bisa liat di config2 berikut
@@ -91,10 +91,17 @@ kita cek containernya
 # kubectl describe pod tomcat2
 ```
 
+### Pods lifecyle Fase
+Ketika pods di bikin akan memiliki fase seperti gambar dibawah ini
+
+<p align="center">
+  <img width="460" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/pod2.png">
+</p>
+
 Referensi sidecar pattern:
 * https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
 
-### REPLICASET
+## REPLICASET
 
 <p align="center">
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/replicaset.png">
@@ -274,7 +281,7 @@ Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are
 > image: debian:bullseye-slim
 ```
 
-kubectl set image deployment my-nginx my-nginx=nginx:1.12.0 --record
+
 
 Referensi baca-baca deployment:
 * https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
