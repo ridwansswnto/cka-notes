@@ -91,6 +91,31 @@ kita cek containernya
 # kubectl describe pod tomcat2
 ```
 
+> Liat Log pods
+
+Pertama jalanin command ini dulu
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-satu
+spec:
+  containers:
+  - name: log
+    image: busybox
+    command: ["printenv"]
+    args: ["HOSTNAME", "KUBERNETES_PORT"]
+EOF
+```
+
+nah setelah selesai liat logs dengan cara command berikut
+```
+# kubectl logs pod-satu  
+> pod-satu
+> tcp://10.96.0.1:443
+```
+
 ### Pods lifecyle Fase
 Ketika pods di bikin akan memiliki fase seperti gambar dibawah ini
 
