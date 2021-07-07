@@ -3,7 +3,9 @@
 ### Daftar Isi
 <!--ts-->
    * [DEPLOYEMENT in KUBERNETES](#deployment-in-kubernetes)
-   * [Pods](#pods)
+   * [PODS](#pods)
+   * [REPLICASET](#replicaset)
+   * [DEPLOYMENT](#deployment)
 <!--te-->
 
 Oke kita belajar komponen dasar dulu yak di kubernetes, biar kita paham.
