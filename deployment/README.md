@@ -1,8 +1,6 @@
 # DEPLOYEMENT in KUBERNETES
 
-Table of contents
-=================
-
+### Daftar Isi
 <!--ts-->
    * [DEPLOYEMENT in KUBERNETES](#deployment-in-kubernetes)
    * [Pods](#pods)
@@ -246,7 +244,7 @@ Referensi Replicaset:
 * https://congdonglinux.com/how-to-create-a-replicaset-in-kubernetes/
 * https://theithollow.com/2019/01/28/kubernetes-replica-sets/
 
-### DEPLOYMENT
+## DEPLOYMENT
 
 <p align="center">
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy2.png">
