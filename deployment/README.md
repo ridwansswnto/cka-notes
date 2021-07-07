@@ -13,7 +13,7 @@ Oke kita belajar komponen dasar dulu yak di kubernetes, biar kita paham.
 Di kubernetes itu ada istilah Pods, Replicaset, dan Deployment. Masing-masing istilah tersebut memiliki fungsi dan saling berkaitan. sebagai gambarannya seperti ini 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy.png">
+  <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy.png">
 </p>
 
 Nah istilah2 gambar diatas akan banyak kalian dengar ketika membahas deployment
@@ -71,7 +71,7 @@ kita cek containernya
 Nah untuk lebih dari satu pods teman-teman bisa menerapkan pattern yang sesuai dengan kebutuhan. Berikut gambar referensinya
 
 <p align="center">
-  <img width="540" height="400" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/containerpattern.jpg">
+  <img width="640" height="480" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/containerpattern.jpg">
 </p>
 
 <details><summary>tomcat.yaml</summary>
