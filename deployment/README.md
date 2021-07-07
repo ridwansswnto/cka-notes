@@ -98,6 +98,14 @@ Ketika pods di bikin akan memiliki fase seperti gambar dibawah ini
   <img width="460" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/pod2.png">
 </p>
 
+Berikut penjelasan detail fase-fasenya:
+* Pending = The Pod has been accepted by the Kubernetes system, but one or more of the container images has not been created.
+* Running = At least one container is still running, or is in the process of starting or restarting.
+* Succeeded = All containers in the Pod terminated successfully.
+* Failed = Containers in the Pod terminated, as least one failed with an error.
+* Unknown = The state of Pod could not be obtained.
+
+
 Referensi sidecar pattern:
 * https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
 
