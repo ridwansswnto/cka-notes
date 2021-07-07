@@ -23,7 +23,12 @@ apa itu deployment? bisa di bilang sebuah management untuk mengatur object seper
 ## PODS
 Kubernetes tidak menjalan kan container secara langsung/direct, tapi melalui pods. didalam pods bisa terdapat lebih dari satu container dimana si container ini berbagi resouce seperti network dll tetapi tetap ada batasan untuk isolasi resource
 
-kalau bingung bisa liat di config2 berikut
+kalau bingung kita praktek ke basic pods aja yaa
+
+### Basic Pods
+Seperti yang sebelumnya di bilang, dalam sebuah pods bisa memiliki lebih dari 1 container, tergantung kebutuhan dan pattern yang akan di terapkan.
+
+Berikut ini contoh untuk satu pods
 
 > Satu Pod
 <details><summary>tomcat.yaml</summary>
