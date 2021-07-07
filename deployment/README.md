@@ -30,7 +30,10 @@ Seperti yang sebelumnya di bilang, dalam sebuah pods bisa memiliki lebih dari 1 
 
 Berikut ini contoh untuk satu pods
 
-> Satu Pod
+**Satu Pod**
+
+---
+
 <details><summary>tomcat.yaml</summary>
 
 ```
@@ -61,7 +64,9 @@ kita cek containernya
 # kubectl describe pod tomcat
 ```
 
-> Dua PODS
+**Dua Pod**
+
+---
 
 Nah untuk lebih dari satu pods teman-teman bisa menerapkan pattern yang sesuai dengan kebutuhan. Berikut gambar referensinya
 
@@ -339,6 +344,7 @@ Referensi baca-baca:
 * https://www.cloudsavvyit.com/10107/pods-deployments-and-replica-sets-kubernetes-resources-explained/
 * https://www.bmc.com/blogs/kubernetes-deployment/
 * https://medium.com/google-cloud/kubernetes-101-pods-nodes-containers-and-clusters-c1509e409e16
+* https://www.infoq.com/articles/kubernetes-effect/
 
 
 ReplicaSet:
