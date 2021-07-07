@@ -63,10 +63,10 @@ kita cek containernya
 
 > Dua PODS
 
-Ini cocok seperti container dengan sidecar pattern
+Nah untuk lebih dari satu pods teman-teman bisa menerapkan pattern yang sesuai dengan kebutuhan. Berikut gambar referensinya
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/podsidecar.png">
+  <img width="540" height="400" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/containerpattern.jpg">
 </p>
 
 <details><summary>tomcat.yaml</summary>
