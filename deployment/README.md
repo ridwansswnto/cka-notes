@@ -245,7 +245,8 @@ NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
 ```
 
->> Scaling a Deployment
+> Scaling a Deployment
+
 nah kali ini semisal kita butuh menambahkan jumlah pods kita bisa naikin replica seperti ini 
 
 ```
