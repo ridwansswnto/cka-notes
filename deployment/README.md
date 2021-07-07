@@ -1,5 +1,12 @@
 # DEPLOYEMENT in KUBERNETES
-===========================
+
+Table of contents
+=================
+
+<!--ts-->
+   * [DEPLOYEMENT in KUBERNETES](#deployment-in-kubernetes)
+   * [Pods](#pods)
+<!--te-->
 
 Oke kita belajar komponen dasar dulu yak di kubernetes, biar kita paham.
 
@@ -14,7 +21,6 @@ Nah istilah2 gambar diatas akan banyak kalian dengar ketika membahas deployment
 apa itu deployment? bisa di bilang sebuah management untuk mengatur object seperti replica set dan pods. Kalau belum paham bisa liat dibawah ini untuk perbandingan antara pods, replicaset dan deployment
 
 ## PODS
-=======
 Kubernetes tidak menjalan kan container secara langsung/direct, tapi melalui pods. didalam pods bisa terdapat lebih dari satu container dimana si container ini berbagi resouce seperti network dll tetapi tetap ada batasan untuk isolasi resource
 
 kalau bingung bisa liat di config2 berikut
