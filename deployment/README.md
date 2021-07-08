@@ -371,7 +371,7 @@ Controlled By:  ReplicaSet/contoh-deployment-55954f5855
 Dalam kubernetes kita bisa scaling dengan manual ataupun auto. Kali ini akan di contohnya manual dulu. Kita set jumlah replica yang di butuhkan misal dari 2 ke 5 seperti gambar berikut
 
 <p align="center">
-  <img width="500" height="280" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy4.png">
+  <img width="500" height="220" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy4.png">
 </p>
 
 
