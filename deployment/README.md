@@ -365,19 +365,24 @@ Controlled By:  ReplicaSet/contoh-deployment-55954f5855
 ....
 ```
 
-> Scaling a Deployment
+#### 
+**Scaling Deployment**
 
-nah kali ini semisal kita butuh menambahkan jumlah pods kita bisa naikin replica seperti ini 
+Dalam kubernetes kita bisa scaling dengan manual ataupun auto. Kali ini akan di contohnya manual dulu. Kita set jumlah replica yang di butuhkan misal dari 2 ke 5 seperti gambar berikut
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy4.png">
+</p>
+
 
 ```
 # kubectl scale --replicas 5 deployment contoh-deployment
 > deployment.apps/contoh-deployment scaled
 ```
 
-nah kita bisa pantau rolling updatenya dengan command `kubectl rollout status deployment contoh-deployment`
+kita bisa pantau rolling updatenya dengan command `kubectl rollout status deployment contoh-deployment`
 ```
-Waiting for deployment "contoh-deployment" rollout to finish: 1 of 5 updated replicas are available...
-Waiting for deployment "contoh-deployment" rollout to finish: 2 of 5 updated replicas are available...
+....
 Waiting for deployment "contoh-deployment" rollout to finish: 3 of 5 updated replicas are available...
 Waiting for deployment "contoh-deployment" rollout to finish: 4 of 5 updated replicas are available...
 deployment "contoh-deployment" successfully rolled out
