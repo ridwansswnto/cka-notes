@@ -295,7 +295,13 @@ Referensi Replicaset:
   <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy2.png">
 </p>
 
-Deployment, hmm topic yang menaric nic. bisa di liat dengan analogi gambar diatas. Deployment sudah mencakup untuk object seperti replicaset dan pods.
+### Basic Deployment
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy3.png">
+</p>
+
+Deployment, hmm topic yang menaric nic. bisa di liat dengan analogi gambar diatas. Deployment sudah mencakup untuk object seperti replicaset dan pods. Untuk detailnya langsung aja copy file deployment.yaml tersebut dan jalankan dengan kubectl apply -f deployment.yaml
 
 <details><summary>deployment.yaml</summary>
 
@@ -334,6 +340,29 @@ deployment.apps/contoh-deployment   1/1     1            1           6m25s
 
 NAME                                           DESIRED   CURRENT   READY   AGE
 replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
+```
+
+#### 
+**Detail Deployment**
+
+Setelah kita liat semua resource yang di created oleh manifest dengan tipe kind `Deployment`, yaitu kita membuat sebuah deployment, replicaset, dan pods. Masih dengan deployment yang sama dengan sebelumnya, sekarang kita liat detail setiap resource tersebut
+
+```
+# kubectl describe deployment contoh-deployment
+....
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+....
+NewReplicaSet:   contoh-deployment-55954f5855 (1/1 replicas created)
+
+# kubectl describe replicasets contoh-deployment-55954f5855
+....
+Controlled By:  Deployment/contoh-deployment
+....
+
+# kubectl describe pods contoh-deployment-55954f5855-229cx
+....
+Controlled By:  ReplicaSet/contoh-deployment-55954f5855
+....
 ```
 
 > Scaling a Deployment
