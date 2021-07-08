@@ -388,18 +388,66 @@ Waiting for deployment "contoh-deployment" rollout to finish: 4 of 5 updated rep
 deployment "contoh-deployment" successfully rolled out
 ```
 
+#### 
+**Rollout Deployment**
+
+Oke biasanya aplikasi itu selalu update version ya, biasa nya di sebut software development lifecyle (SDLC). Dalam praktek nya biasanya kita akan build image baru untuk naik versi. Nah di kubernetes itu bisa yang namanya update image biasanya di sebut rollout yang zero downtime seperti ilustrasi di bawah.
+
+<p align="center">
+  <img width="500" height="200" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/deploy5.png">
+</p>
+
+Sebelum di update kita check dulu rollout historynya
+```
+# kubectl rollout history deployment contoh-deployment
+deployment.apps/contoh-deployment 
+REVISION  CHANGE-CAUSE
+1         <none>
+```
+
 Nah misalkan gua pengen update image dari `debian:busterslim` jadi `debian:bullseyeslim` yaitu dengan cara command seperti dibawah
 ```
-# kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim --record
+# kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim
 
+# kubectl rollout status deployment contoh-deployment
+....
 Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
 Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
+deployment "contoh-deployment" successfully rolled out
+....
 
-# kubectl get pods contoh-deployment-67ccbff8df-9pfbg -o yaml | grep image
-> image: debian:bullseye-slim
+# kubectl get pods contoh-deployment-67ccbff8df-gnjpg -o yaml | grep image
+image: debian:bullseye-slim
+
+# kubectl rollout history deployment contoh-deployment 
+deployment.apps/contoh-deployment 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
 ```
 
+Bisa di lihat total revision bertambah menjadi 2. untuk detail nya bisa menggunakan --revision=x seperti berikut
+```
+# kubectl rollout history deployment contoh-deployment --revision=1
+deployment.apps/contoh-deployment with revision #1
+Pod Template:
+  Labels:       app=contoh
+        pod-template-hash=55954f5855
+  Containers:
+   contoh-testing-container:
+    Image:      debian:buster-slim
+....
 
+# kubectl rollout history deployment contoh-deployment --revision=2
+deployment.apps/contoh-deployment with revision #2
+Pod Template:
+  Labels:       app=contoh
+        pod-template-hash=67ccbff8df
+  Containers:
+   contoh-testing-container:
+    Image:      debian:bullseye-slim
+....
+```
 
 Referensi baca-baca deployment:
 * https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
