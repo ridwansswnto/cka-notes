@@ -30,6 +30,7 @@ Seperti yang sebelumnya di bilang, dalam sebuah pods bisa memiliki lebih dari 1 
 
 Berikut ini contoh untuk satu pods
 
+#### 
 **Satu Pod**
 
 ---
@@ -64,6 +65,7 @@ kita cek containernya
 # kubectl describe pod tomcat
 ```
 
+####
 **Dua Pod**
 
 ---
@@ -109,7 +111,10 @@ kita cek containernya
 # kubectl describe pod tomcat2
 ```
 
-> Liat Log pods
+#### 
+**Basic Operation of Pods**
+
+1. Cek log pod
 
 Pertama jalanin command ini dulu
 ```
@@ -127,11 +132,39 @@ spec:
 EOF
 ```
 
-nah setelah selesai liat logs dengan cara command berikut
+liat logs dengan cara command berikut
 ```
 # kubectl logs pod-satu  
 > pod-satu
 > tcp://10.96.0.1:443
+```
+
+2. Exec to pods
+Pertama jalanin ini dulu 
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-dua
+spec:
+  containers:
+  - name: log
+    image: busybox
+    command: 
+      - /bin/sh
+      - "-c"
+      - "sleep 5m"
+EOF
+```
+
+lanjut untuk masuk ke pods dengan command
+```
+kubectl exec -it pod-dua sh
+printenv 
+KUBERNETES_SERVICE_PORT=443
+KUBERNETES_PORT=tcp://10.96.0.1:443
+HOSTNAME=pod-dua
 ```
 
 ### Pods lifecyle Fase
