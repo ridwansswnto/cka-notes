@@ -464,7 +464,13 @@ Sebelum rollback kita cek dulu deployment image nya
 $ kubectl rollout undo deployment contoh-deployment --to-revision=1
 deployment.apps/contoh-deployment rolled back
 
-kubectl rollout history deployment contoh-deployment --revision=3
+$ kubectl rollout history deployment contoh-deployment revision=3
+deployment.apps/contoh-deployment 
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
+
+$ kubectl rollout history deployment contoh-deployment --revision=3
 ....
 Pod Template:
   Labels:       app=contoh
@@ -474,7 +480,7 @@ Pod Template:
     Image:      debian:buster-slim
 ....
 
-$kubectl describe deployments contoh-deployment
+$ kubectl describe deployments contoh-deployment
 ....
   Containers:
    contoh-testing-container:
