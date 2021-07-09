@@ -490,6 +490,8 @@ $ kubectl describe deployments contoh-deployment
 
 bisa di lihat dari uraian di atas bahwa deployment yang sebelumnya menggunakan image bullseye-slim sudah rollback ke buster-slim
 
+### Next step
+oke setelah sedikit penjelasan, gua berharap terutama buat diri gua sendiri agar paham lebih banyak mengenai workload di kubernetes ini seperti mengenai pods, replicaset dan juga deployment. Langkah selanjutnya karena ini merupakan catatan untuk get CKA certified maka kita lanjut ke practice, Inget CKA is all about PRACTICE PRACTICE PRACTICE and PRACTICE
 
 
 Referensi baca-baca deployment:
