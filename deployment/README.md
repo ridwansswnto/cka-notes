@@ -449,6 +449,43 @@ Pod Template:
 ....
 ```
 
+Kalau misalnya gua mau rollback gimana? nah di deployment ini juga bisa rollback ya dengan cara berikut dan command2 untuk pastiin sudah ke rollback
+
+Sebelum rollback kita cek dulu deployment image nya
+```
+....
+  Containers:
+   contoh-testing-container:
+    Image:      debian:bullseye-slim
+....
+```
+
+```
+$ kubectl rollout undo deployment contoh-deployment --to-revision=1
+deployment.apps/contoh-deployment rolled back
+
+kubectl rollout history deployment contoh-deployment --revision=3
+....
+Pod Template:
+  Labels:       app=contoh
+        pod-template-hash=55954f5855
+  Containers:
+   contoh-testing-container:
+    Image:      debian:buster-slim
+....
+
+$kubectl describe deployments contoh-deployment
+....
+  Containers:
+   contoh-testing-container:
+    Image:      debian:buster-slim
+....
+```
+
+bisa di lihat dari uraian di atas bahwa deployment yang sebelumnya menggunakan image bullseye-slim sudah rollback ke buster-slim
+
+
+
 Referensi baca-baca deployment:
 * https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 * https://www.cloudops.com/blog/kubernetes-deployments-101/
