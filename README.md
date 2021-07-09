@@ -20,6 +20,9 @@ This is notes from my journey to get CKA
 ### Workloads & Scheduling - 15%
 * [Understand deployments and how to perform rolling update and rollbacks](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 * Use ConfigMaps and Secrets to configure applications
+  * [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+  * [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+  * [Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
 * Know how to scale applications
 * Understand the primitives used to create robust, self-healing, application deployments
 * Understand how resource limits can affect Pod scheduling
