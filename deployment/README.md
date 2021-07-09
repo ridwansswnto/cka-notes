@@ -58,11 +58,11 @@ EOF
 
 kita cek containernya
 ```
-# kubectl get pods              
-> NAME     READY   STATUS    RESTARTS   AGE
-> tomcat   1/1     Running   0          8m17s
+$ kubectl get pods              
+NAME     READY   STATUS    RESTARTS   AGE
+tomcat   1/1     Running   0          8m17s
 
-# kubectl describe pod tomcat
+$ kubectl describe pod tomcat
 ```
 
 ####
@@ -104,11 +104,11 @@ EOF
 
 kita cek containernya
 ```
-# kubectl get pods              
-> NAME     READY   STATUS    RESTARTS   AGE
-> tomcat2   2/2     Running   0          4m23s
+$ kubectl get pods              
+NAME     READY   STATUS    RESTARTS   AGE
+tomcat2   2/2     Running   0          4m23s
 
-# kubectl describe pod tomcat2
+$ kubectl describe pod tomcat2
 ```
 
 #### 
@@ -134,9 +134,9 @@ EOF
 
 liat logs dengan cara command berikut
 ```
-# kubectl logs pod-satu  
-> pod-satu
-> tcp://10.96.0.1:443
+$ kubectl logs pod-satu  
+pod-satu
+tcp://10.96.0.1:443
 ```
 
 2. Exec to pods
@@ -160,8 +160,8 @@ EOF
 
 lanjut untuk masuk ke pods dengan command
 ```
-kubectl exec -it pod-dua sh
-printenv 
+$ kubectl exec -it pod-dua sh
+# printenv 
 KUBERNETES_SERVICE_PORT=443
 KUBERNETES_PORT=tcp://10.96.0.1:443
 HOSTNAME=pod-dua
@@ -223,19 +223,19 @@ jalankan dengan command `kubectl apply -f rs.yaml` maka kubernetes akan bikin ob
 
 kalau kita cek dengan get pods akan ada 3 pod dengan nama nginx-proxy 
 ```
-# kubectl get pods        
-> NAME                READY   STATUS    RESTARTS   AGE
-> nginx-proxy-8jrf9   1/1     Running   0          51s
-> nginx-proxy-c5s58   1/1     Running   0          51s
-> nginx-proxy-jwmsw   1/1     Running   0          51s
+$ kubectl get pods        
+NAME                READY   STATUS    RESTARTS   AGE
+nginx-proxy-8jrf9   1/1     Running   0          51s
+nginx-proxy-c5s58   1/1     Running   0          51s
+nginx-proxy-jwmsw   1/1     Running   0          51s
 ```
 
 nah yang menarik disini, ada sebuah controller untuk memastikan bahwa object / pods yang running tetap sesuai atau misal disni harus ada 3, jadi kalau ada pods yang failed atau mati, replicaset akan create pods baru
 
 ```
-# kubectl get replicaset      
-> NAME          DESIRED   CURRENT   READY   AGE
-> nginx-proxy   3         3         3       3m13s
+$ kubectl get replicaset      
+NAME          DESIRED   CURRENT   READY   AGE
+nginx-proxy   3         3         3       3m13s
 ```
 
 nah kalian bisa ngecek ke dalem dengan `descirbe` atau `-o yaml`
@@ -243,7 +243,7 @@ nah kalian bisa ngecek ke dalem dengan `descirbe` atau `-o yaml`
 <details><summary>describe rs nginx-proxy</summary>
 
 ```
-kubectl describe rs nginx-proxy                                                    
+$ kubectl describe rs nginx-proxy                                                    
 Name:         nginx-proxy
 Namespace:    default
 Selector:     tier=frontend
@@ -274,8 +274,8 @@ Events:
 Oke karena kita sudah ada istilah nya abstraksi / management pods, kita bisa ubah scale nya misal dari 3 menjadi 2 seperti berikut
 
 ```
-# kubectl scale --replicas 2 replicaset nginx-proxy
-> replicaset.apps/nginx-proxy scaled
+$ kubectl scale --replicas 2 replicaset nginx-proxy
+replicaset.apps/nginx-proxy scaled
 ```
 
 maka replica podsnya  akan berubah menjadi 2
@@ -348,18 +348,18 @@ replicaset.apps/contoh-deployment-55954f5855   1         1         1       6m24s
 Setelah kita liat semua resource yang di created oleh manifest dengan tipe kind `Deployment`, yaitu kita membuat sebuah deployment, replicaset, dan pods. Masih dengan deployment yang sama dengan sebelumnya, sekarang kita liat detail setiap resource tersebut
 
 ```
-# kubectl describe deployment contoh-deployment
+$ kubectl describe deployment contoh-deployment
 ....
 Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
 ....
 NewReplicaSet:   contoh-deployment-55954f5855 (1/1 replicas created)
 
-# kubectl describe replicasets contoh-deployment-55954f5855
+$ kubectl describe replicasets contoh-deployment-55954f5855
 ....
 Controlled By:  Deployment/contoh-deployment
 ....
 
-# kubectl describe pods contoh-deployment-55954f5855-229cx
+$ kubectl describe pods contoh-deployment-55954f5855-229cx
 ....
 Controlled By:  ReplicaSet/contoh-deployment-55954f5855
 ....
@@ -376,8 +376,8 @@ Dalam kubernetes kita bisa scaling dengan manual ataupun auto. Kali ini akan di 
 
 
 ```
-# kubectl scale --replicas 5 deployment contoh-deployment
-> deployment.apps/contoh-deployment scaled
+$ kubectl scale --replicas 5 deployment contoh-deployment
+deployment.apps/contoh-deployment scaled
 ```
 
 kita bisa pantau rolling updatenya dengan command `kubectl rollout status deployment contoh-deployment`
@@ -399,7 +399,7 @@ Oke biasanya aplikasi itu selalu update version ya, biasa nya di sebut software 
 
 Sebelum di update kita check dulu rollout historynya
 ```
-# kubectl rollout history deployment contoh-deployment
+$ kubectl rollout history deployment contoh-deployment
 deployment.apps/contoh-deployment 
 REVISION  CHANGE-CAUSE
 1         <none>
@@ -407,19 +407,19 @@ REVISION  CHANGE-CAUSE
 
 Nah misalkan gua pengen update image dari `debian:busterslim` jadi `debian:bullseyeslim` yaitu dengan cara command seperti dibawah
 ```
-# kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim
+$ kubectl set image deployment contoh-deployment contoh-testing-container=debian:bullseye-slim
 
-# kubectl rollout status deployment contoh-deployment
+$ kubectl rollout status deployment contoh-deployment
 ....
 Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
 Waiting for deployment "contoh-deployment" rollout to finish: 1 old replicas are pending termination...
 deployment "contoh-deployment" successfully rolled out
 ....
 
-# kubectl get pods contoh-deployment-67ccbff8df-gnjpg -o yaml | grep image
+$ kubectl get pods contoh-deployment-67ccbff8df-gnjpg -o yaml | grep image
 image: debian:bullseye-slim
 
-# kubectl rollout history deployment contoh-deployment 
+$ kubectl rollout history deployment contoh-deployment 
 deployment.apps/contoh-deployment 
 REVISION  CHANGE-CAUSE
 1         <none>
@@ -428,7 +428,7 @@ REVISION  CHANGE-CAUSE
 
 Bisa di lihat total revision bertambah menjadi 2. untuk detail nya bisa menggunakan --revision=x seperti berikut
 ```
-# kubectl rollout history deployment contoh-deployment --revision=1
+$ kubectl rollout history deployment contoh-deployment --revision=1
 deployment.apps/contoh-deployment with revision #1
 Pod Template:
   Labels:       app=contoh
@@ -438,7 +438,7 @@ Pod Template:
     Image:      debian:buster-slim
 ....
 
-# kubectl rollout history deployment contoh-deployment --revision=2
+$ kubectl rollout history deployment contoh-deployment --revision=2
 deployment.apps/contoh-deployment with revision #2
 Pod Template:
   Labels:       app=contoh
