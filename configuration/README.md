@@ -65,7 +65,7 @@ metadata:
 
 Bisa di liat dari gambar diatas bahwa kita bikin config dengan key/value pairs yaitu sleep-interval=25
 
-Bikin configMap dengan banyak kv seperti berikut
+Bikin configMap dengan banyak kv seperti berikut, perhatikan saat go to detailsnya
 ```
 kubectl create configmap app-config \
 --from-literal=application.port=80 \
@@ -117,3 +117,12 @@ kubectl get configmaps app-config -o json
     }
 }
 ```
+
+Oke configmap bisa juga membaca dari file seperti berikut ini. Bikin dulu filenya dengan nama application.properties
+<details><summary>application.properties</summary>
+application.name=haiho
+application.port=80
+application.path=/apps
+application.database=localhost
+pplication.database.port=3017
+</details>
