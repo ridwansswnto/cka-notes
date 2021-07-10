@@ -6,6 +6,9 @@
 
 Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke saat kita bikin container images, akan lebih baik dalam prakteknya nanti menjadi yang namanya reusable image. Artinya satu image bisa di gunakan beberapa environment stage.
 
+* Config Maps: a set of values that can be mapped to a pod as “volume” (to access all config map items as files) or passed as environment variables.
+* Secrets: similar to config maps, secrets can be mounted into a pod as a volume to expose needed information or can be injected as environment variables. Secrets are intended to store credentials to other services that a container might need or to store any sensitive information.
+
 ## ConfigMap
 
 <p align="center">
