@@ -12,7 +12,7 @@ Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke
 ## ConfigMap
 
 <p align="center">
-  <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap1.gif">
+  <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap1.png">
 </p>
 
 Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang disebut ConfigMap, yang berisi key/value pairs, dan bisa membaca dari file.
