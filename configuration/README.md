@@ -27,6 +27,29 @@ sleep-interval:
 ----
 25
 Events:  <none>
+
+$ kubectl get configmaps contoh-config -o yaml
+apiVersion: v1
+data:
+  sleep-interval: "25"
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-07-10T16:54:47Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:sleep-interval: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2021-07-10T16:54:47Z"
+  name: contoh-config
+  namespace: default
+  resourceVersion: "257622248"
+  selfLink: /api/v1/namespaces/default/configmaps/contoh-config
+  uid: aacb418b-5258-4929-aa0d-1e7bbd87c63d
 ```
 
 ```
