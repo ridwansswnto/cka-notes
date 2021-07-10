@@ -4,4 +4,10 @@ Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke
 
 ## ConfigMap
 
-Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang disebut ConfigMap, yang berisi key/value pairs, bisa pendek dan bisa juga membaca dari file
+Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang disebut ConfigMap, yang berisi key/value pairs, bisa pendek dan bisa juga membaca dari file.
+
+### Bikin ConfigMap
+
+```
+kubectl create configmap fortune-config --from-literal=sleep-interval=25
+```
