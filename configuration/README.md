@@ -129,3 +129,30 @@ application.database=localhost
 application.database.port=3017
 ```
 </details>
+
+Pastiin workdir kalian sudah sama dengan si application.properties seperti berikut ini
+```
+$ ls
+application.properties
+
+$ kubectl create configmap app-properties --from-file=application.properties
+configmap/app-properties created
+```
+
+Lets deep dive
+```
+kubectl describe configmaps app-properties                                
+Name:         app-properties
+....
+
+Data
+====
+application.properties:
+----
+application.name=haiho
+application.port=80
+application.path=/apps
+application.database=localhost
+application.database.port=3017
+....
+```
