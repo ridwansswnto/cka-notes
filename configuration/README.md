@@ -1,6 +1,6 @@
 # Configuration
 
-Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jenins.
+Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke saat kita bikin container images, akan lebih baik dalam prakteknya nanti menjadi yang namanya reusable image. Artinya satu image bisa di gunakan beberapa environment stage.
 
 ## ConfigMap
 
