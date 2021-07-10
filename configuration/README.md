@@ -26,7 +26,6 @@ $ kubectl create configmap contoh-config --from-literal=sleep-interval=25
 $ kubectl get configmap      
 NAME               DATA   AGE
 contoh-config      1      10s
-kube-root-ca.crt   1      10d
 
 $ kubectl describe configmaps contoh-config Name:         contoh-config
 Namespace:    default
@@ -64,6 +63,20 @@ metadata:
   uid: aacb418b-5258-4929-aa0d-1e7bbd87c63d
 ```
 
+Bisa di liat dari gambar diatas bahwa kita bikin config dengan key/value pairs yaitu sleep-interval=25
+
+Bikin configMap dengan banyak kv seperti berikut
+```
+kubectl create configmap app-config \
+--from-literal=application.port=80 \
+--from-literal=application.path=/apps \
+--from-literal=application.database=localhost \
+--from-literal=application.database.port=3017
 ```
 
+Kita liat detail nya
+```
+kubectl get configmaps app-config           
+NAME         DATA   AGE
+app-config   4      7s
 ```
