@@ -126,6 +126,6 @@ application.name=haiho
 application.port=80
 application.path=/apps
 application.database=localhost
-aplication.database.port=3017
+application.database.port=3017
 ```
 </details>
