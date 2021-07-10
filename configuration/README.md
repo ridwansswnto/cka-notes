@@ -1,7 +1,7 @@
 # Configuration
 
 <p align="center">
-  <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configuration.png">
+  <img width="700" height="320" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configuration.png">
 </p>
 
 Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke saat kita bikin container images, akan lebih baik dalam prakteknya nanti menjadi yang namanya reusable image. Artinya satu image bisa di gunakan beberapa environment stage.
