@@ -260,4 +260,15 @@ Volumes:
     Name:      app-properties
     Optional:  false
 ....
+
+$ k exec -it configured-pod-2 sh
+# ls config
+application.properties
+# cat config/application.properties
+application.name=haiho
+application.port=80
+application.path=/apps
+application.database=localhost
+application.database.port=3017
+
 ```
