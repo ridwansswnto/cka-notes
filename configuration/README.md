@@ -9,14 +9,14 @@ Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang d
 ### Bikin ConfigMap
 
 ```
-kubectl create configmap contoh-config --from-literal=sleep-interval=25
+$ kubectl create configmap contoh-config --from-literal=sleep-interval=25
 
-kubectl get configmap      
+$ kubectl get configmap      
 NAME               DATA   AGE
 contoh-config      1      10s
 kube-root-ca.crt   1      10d
 
-kubectl describe configmaps contoh-config Name:         contoh-config
+$ kubectl describe configmaps contoh-config Name:         contoh-config
 Namespace:    default
 Labels:       <none>
 Annotations:  <none>
