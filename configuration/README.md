@@ -199,3 +199,21 @@ spec:
         name: app-config
 ```
 </details>
+
+Kita check2 ke pods
+```
+$ kubectl describe pods configured-pod  
+Name:         configured-pod
+....
+    Environment Variables from:
+      app-config  ConfigMap  Optional: false
+....
+
+$ kubectl exec -it configured-pod -- env            
+....
+application.database.port=3017
+application.path=/apps
+application.port=80
+application.database=localhost
+....
+```
