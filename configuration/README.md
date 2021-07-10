@@ -155,4 +155,19 @@ application.path=/apps
 application.database=localhost
 application.database.port=3017
 ....
+
+{
+    "apiVersion": "v1",
+    "data": {
+        "application.properties": "application.name=haiho\napplication.port=80\napplication.path=/apps\napplication.database=localhost\napplication.database.port=3017"
+    },
+    "kind": "ConfigMap",
+    "metadata": {
+        ....
+        "name": "app-properties",
+        ....
+    }
+}
 ```
+
+Hmm kalau teman-teman memperhatikan baik-baik, ada perbedaan yaitu saat kita menggunakan literal, kita bikin seperti key/value pairs, nah kalau di atas kita bikin seperti config biasa.
