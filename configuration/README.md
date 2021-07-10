@@ -7,6 +7,7 @@ Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke
 Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang disebut ConfigMap, yang berisi key/value pairs, bisa pendek dan bisa juga membaca dari file.
 
 ### Bikin ConfigMap
+Oke kali ini kita akan bikin configmap simple ya
 
 ```
 $ kubectl create configmap contoh-config --from-literal=sleep-interval=25
