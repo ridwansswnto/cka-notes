@@ -219,6 +219,7 @@ application.database=localhost
 ```
 
 ### Mounting a ConfigMap as Volume
+Pertama bikin manifest dulu untuk podsnya seperti ini
 <details><summary>config-pod2.yaml</summary>
 
 ```
@@ -239,3 +240,24 @@ spec:
       name: app-properties
 ```
 </details>
+
+Lanjut kita buat podsnya
+```
+$ kubectl create -f config-pod2.yaml
+pod/configured-pod-2 created
+```
+Lets deep dive
+```
+$ kubectl describe pods configured-pod-2
+Name:         configured-pod-2
+....
+    Mounts:
+      /config from properties-volume (rw)
+....
+Volumes:
+  properties-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      app-properties
+    Optional:  false
+....
+```
