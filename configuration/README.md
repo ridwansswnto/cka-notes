@@ -173,7 +173,7 @@ application.database.port=3017
 Hmm kalau teman-teman memperhatikan baik-baik, ada perbedaan yaitu saat kita menggunakan literal, kita bikin seperti key/value pairs, nah kalau di atas kita bikin seperti config file biasa. Jika teman-teman menggunakan tools seperti lens akan terlihat seperti ini
 
 <p align="center">
-  <img width="300" height="2000" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap3.png">
+  <img width="300" height="200" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap3.png">
 </p>
 
 <p align="center">
