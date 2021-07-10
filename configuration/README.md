@@ -179,3 +179,23 @@ Hmm kalau teman-teman memperhatikan baik-baik, ada perbedaan yaitu saat kita men
 <p align="center">
   <img width="300" height="200" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap4.png">
 </p>
+
+### Consuming Configmap
+Masih menggunakan Configmap `app-config`, sekarang akan kita pair dengan pods kita seperti berikut
+
+<details><summary>config-pod.yaml</summary>
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    envFrom:
+    - configMapRef:
+        name: app-config
+```
+</details>
