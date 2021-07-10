@@ -9,5 +9,9 @@ Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang d
 ### Bikin ConfigMap
 
 ```
-kubectl create configmap fortune-config --from-literal=sleep-interval=25
+kubectl create configmap contoh-config --from-literal=sleep-interval=25
+```
+
+```
+
 ```
