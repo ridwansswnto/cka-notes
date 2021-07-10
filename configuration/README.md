@@ -180,7 +180,7 @@ Hmm kalau teman-teman memperhatikan baik-baik, ada perbedaan yaitu saat kita men
   <img width="300" height="200" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/configmap4.png">
 </p>
 
-### Consuming Configmap
+### Configmap As a ENV
 Masih menggunakan Configmap `app-config`, sekarang akan kita pair dengan pods kita seperti berikut
 
 <details><summary>config-pod.yaml</summary>
@@ -217,3 +217,25 @@ application.port=80
 application.database=localhost
 ....
 ```
+
+### Mounting a ConfigMap as Volume
+<details><summary>config-pod2.yaml</summary>
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod-2
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    volumeMounts:
+    - name: properties-volume
+      mountPath: /config
+  volumes:
+  - name: properties-volume
+    configMap:
+      name: app-properties
+```
+</details>
