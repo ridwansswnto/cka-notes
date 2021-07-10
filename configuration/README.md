@@ -79,4 +79,41 @@ Kita liat detail nya
 kubectl get configmaps app-config           
 NAME         DATA   AGE
 app-config   4      7s
+
+kubectl describe configmaps app-config   
+Name:         app-config
+....
+
+Data
+====
+application.database.port:
+----
+3017
+application.path:
+----
+/apps
+application.port:
+----
+80
+application.database:
+----
+localhost
+....
+
+kubectl get configmaps app-config -o json 
+{
+    "apiVersion": "v1",
+    "data": {
+        "application.database": "localhost",
+        "application.database.port": "3017",
+        "application.path": "/apps",
+        "application.port": "80"
+    },
+    "kind": "ConfigMap",
+    "metadata": {
+        ....
+        "name": "app-config",
+        ....
+    }
+}
 ```
