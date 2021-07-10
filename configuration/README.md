@@ -120,9 +120,12 @@ kubectl get configmaps app-config -o json
 
 Oke configmap bisa juga membaca dari file seperti berikut ini. Bikin dulu filenya dengan nama application.properties
 <details><summary>application.properties</summary>
+
+```
 application.name=haiho
 application.port=80
 application.path=/apps
 application.database=localhost
-pplication.database.port=3017
+aplication.database.port=3017
+```
 </details>
