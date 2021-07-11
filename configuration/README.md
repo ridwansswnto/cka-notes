@@ -218,6 +218,30 @@ application.database=localhost
 ....
 ```
 
+Reassigning environment variable keys for ConfigMap entries
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    env:
+    - name: DATABASE_URL
+      valueFrom:
+        configMapKeyRef:
+          name: app-config
+          key: application.database
+    - name: PORT
+      valueFrom:
+        configMapKeyRef:
+          name: backend-config
+          key: application.port
+```
+
 ### Mounting a ConfigMap as Volume
 Pertama bikin manifest dulu untuk podsnya seperti ini
 <details><summary>config-pod2.yaml</summary>
