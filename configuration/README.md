@@ -17,7 +17,11 @@ Di kubernetes untuk config aplikasi dapat di lakukan dengan beberapa jeniis. Oke
 
 Kubernetes memungkinkan pemisahan opsi konfigurasi menjadi objek terpisah yang disebut ConfigMap, yang berisi key/value pairs, dan bisa membaca dari file.
 
-### Bikin ConfigMap
+### Basic ConfigMap
+
+#### 
+**Simple ConfigMap**
+
 Oke kali ini kita akan bikin configmap simple ya
 
 ```
@@ -27,7 +31,8 @@ $ kubectl get configmap
 NAME               DATA   AGE
 contoh-config      1      10s
 
-$ kubectl describe configmaps contoh-config Name:         contoh-config
+$ kubectl describe configmaps contoh-config 
+Name:         contoh-config
 Namespace:    default
 Labels:       <none>
 Annotations:  <none>
@@ -64,6 +69,9 @@ metadata:
 ```
 
 Bisa di liat dari gambar diatas bahwa kita bikin config dengan key/value pairs yaitu sleep-interval=25
+
+#### 
+**Multiple K/V ConfigMap**
 
 Bikin configMap dengan banyak kv seperti berikut, perhatikan saat go to detailsnya
 ```
