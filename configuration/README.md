@@ -304,3 +304,9 @@ application.database=localhost
 application.database.port=3017
 
 ```
+
+## Secret
+
+<p align="center">
+  <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/secret.png">
+</p>
