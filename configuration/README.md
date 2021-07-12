@@ -426,6 +426,29 @@ spec:
   volumes:
   - name: secret-volume
     secret:
-      secretName: db-cred
+      secretName: app-secret
 EOF
+```
+
+Deep dive
+```
+$ kubectl get pods                                                         
+NAME                                 READY   STATUS    RESTARTS   AGE
+configured-pod-2                     1/1     Running   0          48s
+
+$ kubectl describe pods configured-pod-2           
+Name:         configured-pod-2
+....
+Containers:
+....
+    Mounts:
+      /var/app from secret-volume (ro)
+....
+Volumes:
+  secret-volume:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  app-secret
+    Optional:    false
+
+
 ```
