@@ -341,3 +341,25 @@ $ kubectl get secret db-cred -o json | jq '.data | map_values(@base64d)'
   "passwd": "s3cre!"
 }
 ```
+
+### As Env Vars
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    envFrom:
+    - secretRef:
+        name: db-cred
+EOF
+
+$ kubectl exec -it configured-pod -- env
+....
+passwd=s3cre!
+....
+```
