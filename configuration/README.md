@@ -342,6 +342,50 @@ $ kubectl get secret db-cred -o json | jq '.data | map_values(@base64d)'
 }
 ```
 
+### Dari file
+
+```
+db.username=test
+db.password=testingaja
+mq.username=test
+mq.password=testingaja
+```
+
+kalau sudah bikin secretnya
+```
+$ kubectl create secret generic app-secret --from-file=application.secret
+secret/app-secret created
+```
+
+deep dive
+```
+$ kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+app-secret            Opaque                                1      5s
+
+$ kubectl describe secrets app-secret                                      
+Name:         app-secret
+Namespace:    default
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+application.secret:  79 bytes
+
+$ kubectl get secret app-secret -o yaml                                    
+apiVersion: v1
+data:
+  application.secret: ZGIudXNlcm5hbWU9dGVzdApkYi5wYXNzd29yZD10ZXN0aW5nYWphCm1xLnVzZXJuYW1lPXRlc3QKbXEucGFzc3dvcmQ9dGVzdGluZ2FqYQ==
+kind: Secret
+
+$ kubectl get secret app-secret -o json | jq '.data | map_values(@base64d)'
+{
+  "application.secret": "db.username=test\ndb.password=testingaja\nmq.username=test\nmq.password=testingaja"
+}
+```
 ### As Env Vars
 ```
 kubectl apply -f - <<EOF
@@ -362,4 +406,26 @@ $ kubectl exec -it configured-pod -- env
 ....
 passwd=s3cre!
 ....
+```
+
+### As a Mounting Volume
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod-2
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    volumeMounts:
+    - name: secret-volume
+      mountPath: /var/app
+      readOnly: true
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: db-cred
+EOF
 ```
