@@ -310,3 +310,34 @@ application.database.port=3017
 <p align="center">
   <img width="500" height="350" src="https://github.com/ridwansswnto/cka-notes/blob/main/images/secret.png">
 </p>
+
+simple secret with
+```
+kubectl create secret generic db-cred --from-literal=passwd=s3cre!
+```
+
+
+yuk liat detail
+```
+$ kubectl get secret                                                    
+NAME                  TYPE                                  DATA   AGE
+db-cred               Opaque                                1      33m
+
+$ kubectl get secret db-cred -o json                                    
+{
+    "apiVersion": "v1",
+    "data": {
+        "passwd": "czNjcmUh"
+    },
+    "kind": "Secret",
+    ....
+}
+```
+
+Nah itu di decode ya, cara nya gini
+```
+kubectl get secret db-cred -o json | jq '.data | map_values(@base64d)'                             
+{
+  "passwd": "s3cre!"
+}
+```
