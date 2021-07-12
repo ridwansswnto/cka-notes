@@ -336,7 +336,7 @@ $ kubectl get secret db-cred -o json
 
 Nah itu di decode ya, cara nya gini
 ```
-kubectl get secret db-cred -o json | jq '.data | map_values(@base64d)'                             
+$ kubectl get secret db-cred -o json | jq '.data | map_values(@base64d)'                             
 {
   "passwd": "s3cre!"
 }
