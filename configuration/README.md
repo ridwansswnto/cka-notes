@@ -450,5 +450,12 @@ Volumes:
     SecretName:  app-secret
     Optional:    false
 
+$ kubectl exec -it configured-pod-2 -- ls /var/app/
+application.secret
 
+$ kubectl exec -it configured-pod-2 -- cat /var/app/application.secret
+db.username=test
+db.password=testingaja
+mq.username=test
+mq.password=testingaja
 ```
