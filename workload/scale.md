@@ -146,3 +146,29 @@ Events:
   ----     ------                        ----  ----                       -------
 ```
 
+sekarang kita pantau penggunaan resource dengan command `kubectl top pods` danjuga pantau `hpa` dengan `kubectl get hpa`
+```
+$ while true; do kubectl top pods nginx-6cd57464f4-mnhd7; sleep 3; done
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   0m           5Mi  
+
+$ while true; do kubectl get hpa; sleep 3; done
+NAME    REFERENCE          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+nginx   Deployment/nginx   0%/50%    1         3         1          45m
+```
+
+Bisa di liat bahwa penggunaan masih underutilize, alias masih aman, skrg akan kita coba untuk load testing, di sini gua pakai k6s.
+
+<details><summary>limit.yaml</summary>
+
+```
+import http from 'k6/http';
+import { sleep } from 'k6';
+
+export default function () {
+    http.get('http://localhost');
+    sleep(1);
+}
+
+```
+</details>
