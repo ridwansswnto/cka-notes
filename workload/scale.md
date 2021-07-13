@@ -92,3 +92,57 @@ spec:
     name: nginx
   targetCPUUtilizationPercentage: 50
 ```
+</details>
+
+Kalau diperhatikan, di limit yaml itu kita bikin resource seperti deployment, service, dan juga ingress. Fokus ke deployment, di sana gua ngeset resource request dan juga limitnya. Dan fokus ke hpa nya, gua set untuk maximal replicaset yaitu 3 jika cpu usage/utilizenya lebih dari 50%.
+langsung aja diapply untuk file `limit.yaml` dan juga `hpa.yaml`
+
+Deep dive
+
+```
+$ kubectl get deployment      
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+nginx               1/1     1            1           118m
+
+$ kubectl describe deployments nginx
+Name:                   nginx
+Namespace:              default
+....
+Pod Template:
+  Labels:  name=nginx
+  Containers:
+   nginx-service:
+....
+    Limits:
+      cpu:  50m
+    Requests:
+      cpu:        2m
+....
+
+$ kubectl get hpa                             
+NAME    REFERENCE          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+nginx   Deployment/nginx   0%/50%    1         3         1          40m
+
+$ kubectl describe hpa nginx
+Name:                                                  nginx
+Namespace:                                             default
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Tue, 13 Jul 2021 22:49:33 +0700
+Reference:                                             Deployment/nginx
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  0% (0) / 50%
+Min replicas:                                          1
+Max replicas:                                          3
+Deployment pods:                                       1 current / 1 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooFewReplicas    the desired replica count is less than the minimum replica count
+Events:
+  Type     Reason                        Age   From                       Message
+  ----     ------                        ----  ----                       -------
+```
+
