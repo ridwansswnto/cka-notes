@@ -157,7 +157,7 @@ NAME    REFERENCE          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
 nginx   Deployment/nginx   0%/50%    1         3         1          45m
 ```
 
-Bisa di liat bahwa penggunaan masih underutilize, alias masih aman, skrg akan kita coba untuk load testing, di sini gua pakai k6s.
+Bisa di liat bahwa penggunaan masih underutilize, alias masih aman, skrg akan kita coba untuk load testing, di sini gua pakai k6. Siapin script untuk load testnya
 
 <details><summary>limit.yaml</summary>
 
@@ -172,3 +172,46 @@ export default function () {
 
 ```
 </details>
+
+execute ini
+```
+$ k6 run --vus 300 --duration 180s loadtest_pod.js
+```
+
+Nah sambil nunggu kita pantau untuk penggunaan resource di podnys, bisa di liat ningkat
+```
+nginx-6cd57464f4-mnhd7   0m           5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   28m          5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   28m          5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   28m          5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   28m          5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   28m          5Mi             
+NAME                     CPU(cores)   MEMORY(bytes)   
+nginx-6cd57464f4-mnhd7   48m          5Mi             
+```
+
+Usagenya di hpa juga sudah melebihi treshold yang kita set
+```
+NAME    REFERENCE          TARGETS     MINPODS   MAXPODS   REPLICAS   AGE
+nginx   Deployment/nginx   2450%/50%   1         3         1          52m
+```
+
+dan juga liat eventnya dengan describe hpa
+```
+Events:
+  Type     Reason                        Age                From                       Message
+  ----     ------                        ----               ----                       -------
+  Normal   SuccessfulRescale             96s (x2 over 50m)  horizontal-pod-autoscaler  New size: 3; reason: cpu resource utilization (percentage of request) above target
+```
+
+Dan deployment autoscale
+```
+$ kubectl get deployment
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+nginx               3/3     3            3           130m
+```
