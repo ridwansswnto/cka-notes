@@ -253,3 +253,43 @@ spec:
 ```
 </vpa>
 
+Lanjut kita apply vpa nya dan deep dive
+```
+$ kubectl apply -f vpa-off.yaml
+verticalpodautoscaler.autoscaling.k8s.io/nginx created
+
+$ kubectl describe vpa nginx 
+Name:         nginx
+....
+API Version:  autoscaling.k8s.io/v1beta2
+Kind:         VerticalPodAutoscaler
+Metadata:
+....
+Spec:
+  Target Ref:
+    API Version:  apps/v1
+    Kind:         Deployment
+    Name:         nginx
+  Update Policy:
+    Update Mode:  Off
+....
+Status:
+....
+  Recommendation:
+    Container Recommendations:
+      Container Name:  nginx-service
+      Lower Bound:
+        Cpu:     25m
+        Memory:  262144k
+      Target:
+        Cpu:     25m
+        Memory:  262144k
+      Uncapped Target:
+        Cpu:     25m
+        Memory:  262144k
+      Upper Bound:
+        Cpu:     699m
+        Memory:  731500k
+```
+
+Nah ini keliatan ya recommendation pods kita berapa, hanya saja ini masih manual.
