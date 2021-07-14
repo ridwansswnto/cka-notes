@@ -25,7 +25,7 @@ This is notes from my journey to get CKA
   * [Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
 * Know how to scale applications
 * Understand the primitives used to create robust, self-healing, application deployments
-* Understand how resource limits can affect Pod scheduling
+* [Understand how resource limits can affect Pod scheduling](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-pods-with-resource-requests-are-scheduled)
 * Awareness of manifest management and common templating tools
 
 ### Services & Networking - 20%
