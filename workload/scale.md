@@ -227,3 +227,11 @@ $ git checkout vertical-pod-autoscaler-0.8.0
 $ cd vertical-pod-autoscaler/hack
 $ ./vpa-up.sh
 ```
+
+Nah kalau udah kita liat pods di namespace `kube-system`. akan ada tambahan 3 pods untuk vpa ini
+```
+kubectl get pods -n kube-system | grep vpa                                       
+vpa-admission-controller-6f79bcb8fd-b9m5b   1/1     Running   0          16m
+vpa-recommender-7f74494f8f-c8mxs            1/1     Running   0          16m
+vpa-updater-76dd6d788f-tnhpx                1/1     Running   0          16m
+```
