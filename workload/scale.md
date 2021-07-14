@@ -251,7 +251,7 @@ spec:
   updatePolicy:
     updateMode: "Off"
 ```
-</vpa>
+</details>
 
 Lanjut kita apply vpa nya dan deep dive
 ```
