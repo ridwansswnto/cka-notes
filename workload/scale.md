@@ -1,5 +1,7 @@
 ### Scaling in Kubernetes
 
+## HPA
+
 Kali ini gua akan bahas mengenai HPA, jadi di kubernetes untuk scaling kita bisa manual dengan menggunakan replicaset, dan juga ada yang autoscale yaitu salah satunya hpa.
 
 Nah untuk detail prakteknya temen2 prepare dulu manifest-manifest nya sebagai berikut
@@ -214,4 +216,14 @@ Dan deployment autoscale
 $ kubectl get deployment
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 nginx               3/3     3            3           130m
+```
+
+## VPA
+
+Kita butuh install vpa dulu karena vpa ini custom resource. Stepnya seperti ini
+```
+$ git clone https://github.com/kubernetes/autoscaler.git
+$ git checkout vertical-pod-autoscaler-0.8.0
+$ cd vertical-pod-autoscaler/hack
+$ ./vpa-up.sh
 ```
