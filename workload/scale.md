@@ -235,3 +235,21 @@ vpa-admission-controller-6f79bcb8fd-b9m5b   1/1     Running   0          16m
 vpa-recommender-7f74494f8f-c8mxs            1/1     Running   0          16m
 vpa-updater-76dd6d788f-tnhpx                1/1     Running   0          16m
 ```
+
+<details><summary>vpa-off.yaml</summary>
+
+```
+apiVersion: autoscaling.k8s.io/v1beta1
+kind: VerticalPodAutoscaler
+metadata:
+  name: nginx
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       nginx
+  updatePolicy:
+    updateMode: "Off"
+```
+</vpa>
+
